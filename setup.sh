@@ -4,7 +4,6 @@ set -e  # Exit on error
 
 # === Update & Upgrade ===
 echo "Updating system..."
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update && sudo apt upgrade -y
 
 # === Install Essential Packages ===
@@ -28,7 +27,7 @@ packages=(
   fd-find
   git
   vim
-  neovim
+  ninja-build
   gcc
   make
   cmake
@@ -79,6 +78,8 @@ fi
 #cd ~/dotfiles && ./install.sh
 
 # === Neovim kickstart ===
+./cloneAndInstallNeovim.sh
+
 # Set default if XDG_CONFIG_HOME is not set
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
